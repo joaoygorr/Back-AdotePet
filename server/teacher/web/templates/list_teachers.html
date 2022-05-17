@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>E-mail</th>
+      <th>Description</th>
+      <th>Zip-Code</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for teacher in teachers %}
+    <tr>
+      <td>{{teacher.id}}</td>
+      <td>{{teacher.full_name}}</td>
+      <td>{{teacher.email}}</td>
+      <td>{{teacher.description}}</td>
+      <td>{{teacher.cep}}</td>
+      <td>
+        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="#" class="btn btn-danger">delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<A
+{% endblock content %}
