@@ -19,3 +19,18 @@ def register_teacher(request):
 def list_teachers(request): 
     teachers = Teacher.objects.all()
     return render(request, 'list_teachers.html', {'teachers': teachers})
+
+# Editando teacher
+def edit_teacher(request, teacher_id): 
+    teacher = Teacher.objects.get(id=teacher_id)
+    form_teacher = teacher_form.TeacherForm(request.POST or None, instance=teacher)
+    if teacher_form.is_valid():
+        teacher_form.save()
+        return redirect('list_teachers')
+    return render(request, 'form_teacher.html', {"form_teacher": form_teacher})
+
+# Removendo teacher 
+def remove_teacher(request, teacher_id): 
+    teacher = Teacher.objects.get(id=teacher_id)
+    teacher.delete()
+    return redirect("list_teachers")
