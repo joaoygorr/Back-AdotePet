@@ -23,10 +23,13 @@ def list_teachers(request):
 # Editando teacher
 def edit_teacher(request, teacher_id): 
     teacher = Teacher.objects.get(id=teacher_id)
-    form_teacher = teacher_form.TeacherForm(request.POST or None, instance=teacher)
-    if teacher_form.is_valid():
-        teacher_form.save()
-        return redirect('list_teachers')
+    if request.method == "POST":
+        form_teacher = teacher_form.TeacherForm(request.POST or None, request.FILES, instance=teacher)
+        if teacher_form.is_valid():
+            teacher_form.save()
+            return redirect('list_teachers')
+    else: 
+        form_teacher = teacher_form.TeacherForm(instance=teacher)
     return render(request, 'form_teacher.html', {"form_teacher": form_teacher})
 
 # Removendo teacher 
