@@ -25,8 +25,8 @@ def edit_teacher(request, teacher_id):
     teacher = Teacher.objects.get(id=teacher_id)
     if request.method == "POST":
         form_teacher = teacher_form.TeacherForm(request.POST or None, request.FILES, instance=teacher)
-        if teacher_form.is_valid():
-            teacher_form.save()
+        if form_teacher.is_valid():
+            form_teacher.save()
             return redirect('list_teachers')
     else: 
         form_teacher = teacher_form.TeacherForm(instance=teacher)

@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% load easy_mask %}
+{% block content %}
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +19,7 @@
       <td>{{teacher.full_name}}</td>
       <td>{{teacher.email}}</td>
       <td>{{teacher.description}}</td>
-      <td>{{teacher.cep}}</td>
+      <td>{{teacher.zip_code| cep}}</td>
       <td>
         <a href="{% url 'edit_teacher' teacher.id %}" class="btn btn-primary"
           >Edit</a
