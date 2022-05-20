@@ -3,7 +3,7 @@
 </div>
 
 # Back-End Django
-Esse projeto faz parte deste projeto: 
+Esse projeto faz parte deste projeto: https://github.com/joaoygorr/E-Teacher
 
 # Rodando o projeto
 Crie um ambiente virtual para armazenar as dependências. Você pode criar usando esse comando: 
