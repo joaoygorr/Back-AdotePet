@@ -28,7 +28,7 @@ class TeacherForm(forms.ModelForm):
         city_api = json.loads(response.content)
         if "erro" in city_api: 
             raise forms.ValidationError("The specified zip code was not found.")
-        return zip_code_formated
+        return zip_code.replace("-","")
     
     # Limpando phone
     def clean_phone(self): 
@@ -38,7 +38,7 @@ class TeacherForm(forms.ModelForm):
     def save(self, commit=True): 
         instance = super(TeacherForm, self).save(commit=False)
         response = zip_code_service.search_city_zip_Code(self.cleaned_data.get('zip_code'))
-        city__api = json.loads(response.content)
-        instance.cod_ibge = city__api["cod_ibge"]
+        city_api = json.loads(response.content)
+        instance.cod_ibge = city_api["ibge"]
         instance.save()
         return instance

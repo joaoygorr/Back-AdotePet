@@ -1,4 +1,3 @@
-from urllib import request
 import requests
 
 def search_city_zip_Code(zip_code): 
