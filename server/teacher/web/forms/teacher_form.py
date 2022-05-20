@@ -1,3 +1,4 @@
+from attr import fields
 from django import forms
 import json
 # table Teacher
@@ -11,7 +12,6 @@ class TeacherForm(forms.ModelForm):
     
     class Meta: 
         model = Teacher
-        # exclude = ("cod_ibge", )
         exclude = ("cod_ibge", )
     
     # Limpando cpf
@@ -39,7 +39,7 @@ class TeacherForm(forms.ModelForm):
     def save(self, commit=True): 
         instance = super(TeacherForm, self).save(commit=False)
         response = zip_code_service.search_city_zip_Code(self.cleaned_data.get('zip_code'))
-        city__api = json.loads(response.content)
-        instance.cod_ibge = city__api["cod_ibge"]
+        city_api = json.loads(response.content)
+        instance.cod_ibge = city_api["ibge"]
         instance.save()
         return instance

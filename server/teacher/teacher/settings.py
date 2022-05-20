@@ -24,7 +24,9 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'easy_mask',
     'web',
+    'api'
 ]
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
