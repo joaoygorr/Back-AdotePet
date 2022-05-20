@@ -1,5 +1,7 @@
-import pycep_correios
+import requests
 
 def search_city_zip_Code(zip_code): 
-    response = pycep_correios.get_address_from_cep(zip_code)
+    response = requests.get(
+        f"http://viacep.com.br/ws/{zip_code}/json"
+    )
     return response
