@@ -5,8 +5,11 @@ import json
 
 def list_teachers_city(zip_code): 
     cod_ibge = search_city_zip_code(zip_code)['ibge']
-    teachers = Teacher.objects.filter(cod_ibge=cod_ibge).order_by("id")
-    return teachers
+    try: 
+        teachers = Teacher.objects.filter(cod_ibge=cod_ibge).order_by("id")
+        return teachers
+    except Teacher.DoesNotExist:
+        return []
 
 def search_city_zip_code(zip_code): 
     response = zip_code_service.search_city_zip_Code(zip_code)
