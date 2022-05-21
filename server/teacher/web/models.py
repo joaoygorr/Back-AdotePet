@@ -13,5 +13,6 @@ class Teacher(models.Model):
     complement = models.CharField(max_length=100, null=False, blank=True)
     zip_code = models.CharField(max_length=8, null=False, blank=False)
     state = models.CharField(max_length=2, null=False, blank=False)
+    city = models.CharField(max_length=30, null=False, blank=False)
     cod_ibge = models.IntegerField(null=False, blank=False)
     photo_user = models.ImageField(null=False)

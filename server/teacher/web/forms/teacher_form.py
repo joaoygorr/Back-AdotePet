@@ -1,4 +1,4 @@
-from attr import fields
+from dataclasses import fields
 from django import forms
 import json
 # table Teacher
