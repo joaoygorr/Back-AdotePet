@@ -8,8 +8,6 @@ Esse projeto faz parte deste projeto: https://github.com/joaoygorr/Adote-Pet
 
 # Rodando o projeto
 
-Altere as configurações do banco de dados em `settings.py`.
-
 Para rodar o projeto, execute:
 
 ```
