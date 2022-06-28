@@ -5,11 +5,3 @@
 # Back-End Spring Boot
 
 Esse projeto faz parte deste projeto: https://github.com/joaoygorr/Adote-Pet
-
-# Rodando o projeto
-
-Para rodar o projeto, execute:
-
-```
-python manage.py runserver
-```
